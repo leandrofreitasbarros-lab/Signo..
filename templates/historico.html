@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Histórico de Consultas</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f9; color: #333; margin: 0; padding: 20px; }
+        .container { max-width: 800px; margin: auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        h1 { text-align: center; color: #4a4e69; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; font-size: 14px; }
+        th { background-color: #6c5ce7; color: white; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        .nav-link { display: inline-block; margin-top: 20px; color: #6c5ce7; text-decoration: none; font-weight: bold; }
+        .nav-link:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Histórico de Consultas</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Nascimento</th>
+                    <th>Signo/Elemento</th>
+                    <th>Características</th>
+                    <th>Data/Hora</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for reg in registros %}
+                <tr>
+                    <td>{{ reg[0] }}</td>
+                    <td>{{ reg[1] }}</td>
+                    <td>{{ reg[2] }}</td>
+                    <td>{{ reg[3] }}</td>
+                    <td>{{ reg[4] }}</td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="5" style="text-align: center;">Nenhuma consulta registrada ainda.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/" class="nav-link">⬅ Voltar para a Consulta</a>
+    </div>
+</body>
+</html>

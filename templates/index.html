@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Descubra seu Signo</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f9; color: #333; margin: 0; padding: 20px; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        .container { background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 100%; max-width: 450px; }
+        h1, h2 { text-align: center; color: #4a4e69; }
+        label { display: block; margin-top: 15px; font-weight: bold; }
+        input[type="text"], input[type="date"] { width: 100%; padding: 10px; margin-top: 5px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        button { width: 100%; background-color: #6c5ce7; color: white; border: none; padding: 12px; margin-top: 20px; border-radius: 4px; font-size: 16px; cursor: pointer; }
+        button:hover { background-color: #5b47d6; }
+        .resultado { margin-top: 25px; background: #eef2f7; padding: 15px; border-radius: 6px; border-left: 5px solid #6c5ce7; }
+        .nav-link { display: block; text-align: center; margin-top: 20px; color: #6c5ce7; text-decoration: none; font-weight: bold; }
+        .nav-link:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔮 Descubra seu Signo</h1>
+        <form method="POST">
+            <label for="nome">Seu Nome:</label>
+            <input type="text" id="nome" name="nome" required placeholder="Digite seu nome">
+
+            <label for="data_nascimento">Data de Nascimento:</label>
+            <input type="date" id="data_nascimento" name="data_nascimento" required>
+
+            <button type="submit">Consultar Signo</button>
+        </form>
+
+        {% if resultado %}
+        <div class="resultado">
+            <h2>Olá, {{ resultado.nome }}!</h2>
+            <p><strong>Signo:</strong> {{ resultado.signo }}</p>
+            <p><strong>Elemento:</strong> {{ resultado.elemento }}</p>
+            <p><strong>Planeta Regente:</strong> {{ resultado.planeta }}</p>
+            <p><strong>Características:</strong> {{ resultado.caracteristicas }}</p>
+        </div>
+        {% endif %}
+
+        <a href="/historico" class="nav-link">Ver Histórico de Consultas 📊</a>
+    </div>
+</body>
+</html>
